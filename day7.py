@@ -11,16 +11,20 @@ def find_max_area(container_list):
 	max_container = 0
 
 	for i in range(len(container_list)):
+
 		container_size = 1
+
 		for j in range(i+1, len(container_list)):
+
 			if container_list[i] >= container_list[j]:
 				container_size = container_list[j] * (j - i)
 			else:
 				container_size = container_list[i] * (j - i)
-			# print(container_size)
+
 			if max_container < container_size:
 				max_container = container_size
 
 	return max_container
+
 
 print(find_max_area([1,8,6,2,5,4,8,3,7]))
