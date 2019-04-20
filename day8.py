@@ -21,8 +21,9 @@ def most_profit(stock):
 	for i in range(len(stock)):
 		profit = 0
 
-		for j in range(i+1, len(stock) - 1):
+		for j in range(i+1, len(stock)):
 			profit = stock[j] - stock[i]
+			print(stock[j], stock[i])
 			if  profit > max_profit:
 				max_profit = profit
 
@@ -31,4 +32,5 @@ def most_profit(stock):
 
 print(most_profit([7,1,5,3,6,4])) #5
 print(most_profit([7,6,4,3,1])) #0
+print(most_profit([1,2])) #1
 
