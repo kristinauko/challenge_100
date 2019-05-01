@@ -20,4 +20,4 @@ def longestCommonPrefix(strs):
 
 
 print(longestCommonPrefix(["flower","flow","flight"])) #"fl"
-print(longestCommonPrefix(["dog","racecar","car"]))
+print(longestCommonPrefix(["dog","racecar","car"])) # ""
