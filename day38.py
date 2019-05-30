@@ -20,7 +20,7 @@ A solution set is:
 """
 
 def find_triplet(nums):
-    """Given array find find all unique sets which sum up to 0"""
+    """Given array, find find all unique sets which sum up to 0"""
 
     unique_lists = []
     num_list = []

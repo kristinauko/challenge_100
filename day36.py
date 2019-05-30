@@ -84,6 +84,7 @@ def max(stack):
 #         return self.maxes[-1]
 
 
+
 if __name__ == "__main__":
     import doctest
 
