@@ -19,6 +19,7 @@ and change the program so that it works for any size, outputting a grid of the
 given width and height. 
 */
 
+
 let size = 8;
 
 for (let num = 1; num <= size; num++) {
@@ -32,3 +33,20 @@ for (let num = 1; num <= size; num++) {
             } console.log(line);
         }
 }
+
+
+/* Proposed solution:
+
+for (let y = 0; y < size; y++) {
+  for (let x = 0; x < size; x++) {
+    if ((x + y) % 2 == 0) {
+      board += " ";
+    } else {
+      board += "#";
+    }
+  }
+  board += "\n";
+}
+
+console.log(board);
+*/
