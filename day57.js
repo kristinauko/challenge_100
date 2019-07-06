@@ -19,3 +19,5 @@ function produceArray(n, min, max) {
 
 produceArray(8, 1, 7)
 
+
+

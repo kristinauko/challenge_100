@@ -1,0 +1,99 @@
+<!-- Display the grid 8 X 8
+Javascript + HTML + CSS-->
+
+<!doctype html>
+<title></title>
+
+<style>
+#stage
+{
+  position: relative;
+}
+
+.cell
+{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  background-color: white;
+  }
+
+</style>
+
+<div id="stage"></div>
+
+<script>
+
+//Reference to the element "stage"
+const stage = document.querySelector("#stage");
+
+//Hardcoded pattern
+let map =
+[ [ 5, 5, 1, 3, 2, 5, 2, 1 ],
+  [ 5, 7, 5, 7, 6, 6, 3, 3 ],
+  [ 6, 1, 2, 5, 2, 2, 4, 5 ],
+  [ 5, 1, 3, 2, 3, 5, 2, 2 ],
+  [ 5, 4, 4, 6, 5, 4, 4, 4 ],
+  [ 6, 4, 2, 2, 4, 5, 3, 5 ],
+  [ 3, 4, 1, 7, 2, 5, 3, 6 ],
+  [ 2, 3, 1, 4, 3, 7, 4, 3 ] ]
+
+//The size of the cell
+const SIZE = 40;
+
+//The space between cells
+const SPACE = 10;
+
+//Display the array
+const ROWS = map.length;
+const COLS = map[0].length;
+
+for(let row = 0; row < ROWS; row++)
+{
+  for(let column = 0; column < COLS; column++)
+  {
+    //div HTML element called cell
+    const cell = document.createElement("div");
+
+    //CSS class to "cell"
+    cell.setAttribute("class", "cell");
+
+    //Add the div HTML element to the stage
+    stage.appendChild(cell);
+
+    //Set colors
+    if(map[row][column] === 1) {
+      cell.style.backgroundColor = "grey";
+    }
+
+    else if(map[row][column] === 2) {
+      cell.style.backgroundColor = "red";
+    }
+
+    else if(map[row][column] === 3) {
+      cell.style.backgroundColor = "yellow";
+    }
+
+    else if(map[row][column] === 4) {
+      cell.style.backgroundColor = "green";
+    }
+
+    else if(map[row][column] === 5) {
+      cell.style.backgroundColor = "blue";
+    }
+
+    else if(map[row][column] === 6) {
+      cell.style.backgroundColor = "orange";
+    }
+
+    else if(map[row][column] === 7) {
+      cell.style.backgroundColor = "brown";
+    }
+
+    //Position the cell, 10 pixels around it
+    cell.style.top = row * (SIZE + SPACE) + "px";
+    cell.style.left = column * (SIZE + SPACE) + "px";
+  }
+}
+</script>
