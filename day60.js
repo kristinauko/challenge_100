@@ -13,7 +13,7 @@ const min = 1;
 const max = 7;
 
 //Generate pattern
-let map = findCluster();
+let map = findClusters();
 
 // Produce two-dimentional array of randomized numbers
 function produceArray(n, min, max) {
@@ -33,7 +33,8 @@ function produceArray(n, min, max) {
 }
 
 
-function findCluster() {
+function findClusters() {
+
     array = produceArray(gridSize, min, max);
 
     console.log(array)
@@ -50,18 +51,21 @@ function findCluster() {
         for (let j = 1; j < length; j++) {
 
             if (array[i][j-1] == array[i][j] && row_cluster.length == 0) {
-                row_cluster.push([j-1, i], [j, i]);
-                // console.log(row_cluster);
+                row_cluster.push([i, j-1], [i, j]);
+              
             } else if (array[i][j-1] == array[i][j]) {
-                row_cluster.push([j, i]);
-                // console.log(row_cluster);
+                row_cluster.push([i, j]);
+                if (j == (length - 1) && row_cluster.length >= 3) {
+                    clusters.push(row_cluster);
+                    row_cluster = []; 
+                }
             } else {
-                if (row_cluster.length >= 3){
+                if (row_cluster.length >= 3) {
                 clusters.push(row_cluster);
                 } row_cluster = [];
-                }
-            }     
-        }  
+            }
+        }     
+    }  
         
     // Check for clusters in columns
     for (let i = 0; i < length; i++) {
@@ -71,20 +75,19 @@ function findCluster() {
         for (let j = 1; j < length; j++) {
 
             if (array[j-1][i] == array[j][i] && col_cluster.length == 0) {
-                col_cluster.push([i, j-1], [i, j]);
-                // console.log(row_cluster);
+                col_cluster.push([j-1, i], [j, i]);
             } else if (array[j-1][i] == array[j][i]) {
-                col_cluster.push([i, j]);
-                // console.log(row_cluster);
+                col_cluster.push([j, i]);
+                if (j == (length - 1) && col_cluster.length >= 3) {
+                    clusters.push(col_cluster);
+                    col_cluster = [];
+                }
             } else {
-                if (col_cluster.length >= 3){
+                if (col_cluster.length >= 3) {
                 clusters.push(col_cluster);
-                } 
-                col_cluster = [];
-                    // console.log(row_cluster);
+                }  col_cluster = [];  
             }
         }     
     }
-
     console.log(clusters)
 }
